@@ -14,6 +14,7 @@ import Loader from '../components/Loader';
 import { useGetOrderDetailsQuery } from '../slices/ordersApiSlice';
 
 import React from 'react';
+import calculateTotalPrice from '../utils/calculateTotalPrice';
 
 const OrderScreen = () => {
   const { id: orderId } = useParams();
@@ -100,7 +101,7 @@ const OrderScreen = () => {
               <ListGroupItem>
                 <Row>
                   <Col>Items</Col>
-                  <Col>${order.itemsPrice} </Col>
+                  <Col>${calculateTotalPrice(order.orderItems)} </Col>
                 </Row>
                 <Row>
                   <Col>Shipping</Col>
